@@ -7,9 +7,21 @@ function App() {
   const contacts = contactsArr.slice(0,5)
 const [list, setList] = useState(contacts)
 
+const addContact = () => {
+  // buscamos contacto aleatorio
+let randomContact = contactsArr[Math.floor(Math.random()*contactsArr.length)]
+//console.log(randomContact)
+// hacemos array nuevo y copiamos el aleatorio
+const copyList = [...list]
+// modificamos list añadiendo el aleatorio
+copyList.push(randomContact)
+setList(copyList)
+}
+
   return (
     <div className="App">
 <h2>IronContacts</h2>
+    <button onClick={addContact}>Add Contact</button>
 <table>
  <thead>
   <tr>
