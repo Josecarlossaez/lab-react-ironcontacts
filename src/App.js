@@ -20,6 +20,10 @@ const [list, setList] = useState(contacts)
 
     <th>Popularity</th>
 
+    <th>Won Oscar</th>
+
+    <th>Won Emmy</th>
+
   </tr>
  </thead>
 
@@ -34,7 +38,9 @@ const [list, setList] = useState(contacts)
 
         <td>{eachContact.name}</td>
 
-       <td>{eachContact.popularity.toFixed(2)}</td>
+       <td>{eachContact.popularity}</td>
+       <td>{eachContact.wonOscar===true && `🏆`}</td>
+       <td>{eachContact.wonEmmy===true && `🏆`}</td>
 
      </tr>
 )
