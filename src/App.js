@@ -40,6 +40,18 @@ function App() {
     })
     setList(copy)
   }
+const deleteContact = (contactId) => {
+// sacar el elemento del array
+const filteredContact = list.filter((eachContact) => {
+  if(eachContact.id === contactId){
+    return false; //no incluirlo en el array
+  }else{
+    return true; // incluyelo
+  }
+})
+setList(filteredContact)
+}
+
 
   return (
     <div className="App">
@@ -59,6 +71,8 @@ function App() {
             <th>Won Oscar</th>
 
             <th>Won Emmy</th>
+
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -79,6 +93,7 @@ function App() {
                 <td>{eachContact.popularity.toFixed(2)}</td>
                 <td>{eachContact.wonOscar === true && `🏆`}</td>
                 <td>{eachContact.wonEmmy === true && `🏆`}</td>
+                <td><button onClick={() => deleteContact(eachContact.id)}>Delete</button></td>
               </tr>
             );
           })}
